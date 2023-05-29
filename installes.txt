@@ -1,0 +1,14 @@
+#locally installation typescript
+npm install -D typescript
+npm install -D @types/node
+npm install -D ts-node
+
+
+# install typescript globally
+npm install -g typescript
+npm install -g @types/node
+npm install -g ts-node
+
+
+# install typescript for run time
+npm install -g ts-node
