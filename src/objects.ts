@@ -1,6 +1,6 @@
 let carro = {
   fabricante: "Toyota",
-  modelo: "Prius",
+  modelo: "Prius", 
   anho: 2022,
 };
 
@@ -16,3 +16,5 @@ function getCar(car: { fabricante: string; modelo: string; anho: number }) {
 }
 
 getCar(carro);
+
+

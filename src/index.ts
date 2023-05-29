@@ -7,7 +7,7 @@ export async function suma(a: number, b: number){
     return a + b 
 }
 
-export declare function suma2(a: number, b: number): Promise<number>
+export declare function suma2(a: number, b: number): Promise<number>;
 
 ;(async () => {
     console.log(await suma2(3, 4))
