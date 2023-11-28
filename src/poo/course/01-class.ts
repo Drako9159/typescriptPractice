@@ -1,13 +1,10 @@
 class MyDate {
-  private year: number;
-  private month: number;
-  private day: number;
-
-  constructor(year: number, month: number, day: number) {
-    this.year = year;
-    this.month = month;
-    this.day = day;
-  }
+  // optimize constructor
+  constructor(
+    private year: number = 1996,
+    private month: number = 6,
+    private _day: number = 6
+  ) {}
 
   private addPadding(value: number) {
     if (value < 10) return `0${value}`;
@@ -15,24 +12,32 @@ class MyDate {
   }
 
   printFormat(): string {
-    const day = this.addPadding(this.day);
+    const day = this.addPadding(this._day);
     const month = this.addPadding(this.month);
     return `${day}/${month}/${this.year}`;
   }
 
   add(amount: number, type: "days" | "months" | "years") {
-    if (type === "days") this.day += amount;
+    if (type === "days") this._day += amount;
     if (type === "months") this.month += amount;
     if (type === "years") this.year += amount;
   }
 
-  getDay() {
-    return this.day;
+  get day() {
+    return this._day;
+  }
+
+  get isLeapYear(): boolean {
+    if (this.year % 400 === 0) return true;
+    if (this.year % 100 === 0) return false;
+    return this.year % 4 === 0;
   }
 }
 
-const myDate = new MyDate(2021, 3, 13);
+const myDate = new MyDate(1996, 3, 13);
 
 myDate.add(3, "days");
 
 console.log(myDate.printFormat());
+
+console.log(myDate.isLeapYear);
